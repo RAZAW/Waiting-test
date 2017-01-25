@@ -6,13 +6,14 @@ include RSpec::Matchers
 
 def setup
 	@driver = Selenium::WebDriver.for :firefox
+	#implicit wait
 	@driver.manage.timeouts.implicit_wait = 3
 end
 
 def teardown
 	@driver.quit
 end
-
+#explicit wait
 def wait_for(seconds)
 	Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
 end
